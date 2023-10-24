@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct LandingView: View {
-    
+
     @State private var selectedTab: Tab = .trending
     @State private var searchText: String = ""
 
     enum Tab {
         case trending, following
     }
-    
+
     var body: some View {
         VStack(spacing: 16) {
-            
+
             // Search Bar
             HStack {
-                Image(systemName: "magnifyingglass")
+                SwiftUI.Image(systemName: "magnifyingglass")
                     .padding(.leading, 10)
                     .foregroundColor(.gray)
                 TextField("Search for amazing content", text: $searchText)
@@ -30,7 +30,7 @@ struct LandingView: View {
             .background(Color.white)
             .cornerRadius(20)
             .shadow(color: Color.gray.opacity(0.2), radius: 5, x: 0, y: 5)
-            
+
             // Navigation Bar
             HStack(spacing: 20) {
                 Text("Trending")
@@ -65,12 +65,12 @@ struct LandingView: View {
                         selectedTab = .following
                     }
             }
-            
+
             Spacer()
-            
+
             // Views
             if selectedTab == .trending {
-                // TrendingView()
+                 TrendingView()
             } else {
                 // FollowingView()
             }
