@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var displayLandingView: Bool = false
+
     var body: some View {
-        AppLaunchView()
+        
+        if displayLandingView {
+            LandingView()
+        } else {
+            AppLaunchView(displayLandingView: $displayLandingView)
+        }
     }
 }
 

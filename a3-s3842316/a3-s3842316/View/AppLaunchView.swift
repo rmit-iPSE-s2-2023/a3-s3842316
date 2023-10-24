@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AppLaunchView: View {
     
+    @Binding var displayLandingView: Bool
+    
     @State private var opacity: Double = 1.0
     @State private var scale: CGFloat = 0.1
     @State private var rotation: Angle = .degrees(0)
@@ -26,14 +28,13 @@ struct AppLaunchView: View {
                 opacity = 0
                 scale = 1.0
                 rotation = .degrees(360)
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                    displayLandingView = true
+                }
             }
         }
     }
 }
 
-struct AppLaunchView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppLaunchView()
-    }
-}
 
